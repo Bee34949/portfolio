@@ -14,23 +14,16 @@
             background-color: #f9f9f9;
         }
 
-        /* การตั้งค่าแถบเมนู */
+        /* แถบเมนู */
         nav {
             background-color: #333;
             color: white;
             padding: 15px;
-            text-align: left; /* ตั้งตำแหน่งให้เริ่มจากด้านซ้าย */
+            text-align: center;
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 10;
-            display: flex;
-            align-items: center; /* จัดให้อยู่ในแนวนอนตรงกลาง */
-        }
-
-        nav img.logo {
-            width: 50px; /* ขนาดโลโก้ที่ต้องการ */
-            margin-right: 20px; /* ระยะห่างระหว่างโลโก้และลิงก์เมนู */
         }
 
         nav a {
@@ -48,7 +41,7 @@
         /* เนื้อหากลางหน้า */
         .content {
             text-align: center;
-            margin-top: 150px; /* ระยะห่างจากแถบเมนู */
+            margin-top: 80px; /* เว้นช่องว่างสำหรับแถบเมนู */
         }
 
         h1 {
@@ -56,9 +49,44 @@
             color: #333;
         }
 
-        p {
-            font-size: 1.2em;
-            color: #666;
+        /* กำหนดค่าสไลด์โชว์ */
+        .slideshow-container {
+            width: 60%; /* ขนาดความกว้างของสไลด์โชว์ */
+            max-width: 700px;
+            margin: 50px auto; /* ให้อยู่ตรงกลาง */
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        /* รูปภาพที่ใช้ในสไลด์ */
+        .slides {
+            display: none;
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+        }
+
+        /* จุดกลมสำหรับการเลื่อนรูป */
+        .dot-container {
+            text-align: center;
+            margin: 15px 0;
+        }
+
+        .dot {
+            cursor: pointer;
+            height: 15px;
+            width: 15px;
+            margin: 0 2px;
+            background-color: #bbb;
+            border-radius: 50%;
+            display: inline-block;
+            transition: background-color 0.6s ease;
+        }
+
+        .active, .dot:hover {
+            background-color: #717171;
         }
 
     </style>
@@ -67,7 +95,7 @@
 
 <!-- แถบเมนู -->
 <nav>
-    <img src="BO.webp" alt="Logo" class="logo">
+    <a href="index.html">หน้าแรก</a>
     <a href="about.html">เกี่ยวกับฉัน</a>
     <a href="projects.html">โครงการ</a>
     <a href="contact.html">ติดต่อ</a>
@@ -77,7 +105,60 @@
 <div class="content">
     <h1>ยินดีต้อนรับสู่เว็บไซต์ของผม!</h1>
     <p>สวัสดีครับ ผมชื่อ นายวงศพัทธ์ นาคม่วง นักพัฒนา Backend ที่มีความมุ่งมั่นในการสร้างสรรค์เทคโนโลยีใหม่ ๆ</p>
+    
+    <!-- สไลด์โชว์ -->
+    <div class="slideshow-container">
+        <img class="slides" src="BB4.jpg" alt="Slide 1">
+        <img class="slides" src="BB5.jpg" alt="Slide 2">
+        <img class="slides" src="BB6.jpg" alt="Slide 3">
+    </div>
+
+    <!-- จุดกลมเพื่อบอกตำแหน่งสไลด์ -->
+    <div class="dot-container">
+        <span class="dot" onclick="currentSlide(1)"></span> 
+        <span class="dot" onclick="currentSlide(2)"></span> 
+        <span class="dot" onclick="currentSlide(3)"></span> 
+    </div>
 </div>
+
+<!-- JavaScript สำหรับการควบคุมสไลด์ -->
+<script>
+    let slideIndex = 0;
+    showSlides();
+
+    function showSlides() {
+        let slides = document.getElementsByClassName("slides");
+        let dots = document.getElementsByClassName("dot");
+
+        // ซ่อนรูปภาพทั้งหมดก่อน
+        for (let i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";  
+        }
+
+        // รีเซ็ต dot ทั้งหมด
+        for (let i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+        }
+
+        // เลื่อนไปสไลด์ถัดไป
+        slideIndex++;
+        if (slideIndex > slides.length) {slideIndex = 1}    
+
+        // แสดงรูปปัจจุบัน
+        slides[slideIndex-1].style.display = "block";  
+
+        // แสดง dot ที่ตรงกับรูป
+        dots[slideIndex-1].className += " active";
+
+        // เลื่อนไปยังรูปถัดไปทุกๆ 5 วินาที
+        setTimeout(showSlides, 5000); // 5000 มิลลิวินาที = 5 วินาที
+    }
+
+    function currentSlide(n) {
+        slideIndex = n;
+        showSlides();
+    }
+</script>
 
 </body>
 </html>
