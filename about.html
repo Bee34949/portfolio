@@ -48,13 +48,13 @@
         .background {
             background-size: cover;
             background-position: center;
-            min-height: 100vh; /* ปรับให้เต็มหน้าจอ */
+            height: 100vh;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             transition: background-image 0.5s ease-in-out;
-            position: relative;
+            position: relative; /* ทำให้สามารถวางลูกศรซ้ายขวา */
         }
 
         /* เนื้อหาตรงกลาง */
@@ -63,13 +63,8 @@
             background-color: rgba(255, 255, 255, 0.8);
             padding: 20px;
             border-radius: 10px;
-            z-index: 1;
-            margin-top: 60px;
-            /* ปรับความสูงขั้นต่ำให้เต็มหน้าจอโดยหักลบแถบเมนูด้านบนและด้านล่าง */
-            min-height: calc(100vh - 120px); /* 120px มาจากเมนูบนและล่างรวมกัน */
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
+            z-index: 1; /* ทำให้ container อยู่เหนือพื้นหลัง */
+            margin-top: 60px; /* เลื่อนลงมาให้ไม่ทับกับแถบเมนูด้านบน */
         }
 
         /* การจัดการรูปภาพ */
@@ -119,6 +114,29 @@
     <a href="#">โครงการ</a>
     <a href="#">ติดต่อ</a>
 </nav>
+
+<script>
+    // รายการภาพพื้นหลัง
+    const images = [
+        'url("BB4.jpg")',
+        'url("BB5.jpg")',
+        'url("BB6.jpg")'
+    ];
+
+    let currentIndex = 0;
+
+    // ฟังก์ชันสำหรับเปลี่ยนภาพอัตโนมัติ
+    function autoSlide() {
+        currentIndex = (currentIndex === images.length - 1) ? 0 : currentIndex + 1;
+        document.getElementById('background').style.backgroundImage = images[currentIndex];
+    }
+
+    // ตั้งค่าเริ่มต้น
+    document.getElementById('background').style.backgroundImage = images[currentIndex];
+
+    // ตั้งให้เปลี่ยนภาพทุก 5 วินาที
+    setInterval(autoSlide, 5000); // 5000 มิลลิวินาที = 5 วินาที
+</script>
 
 </body>
 </html>
