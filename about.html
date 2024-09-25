@@ -48,13 +48,13 @@
         .background {
             background-size: cover;
             background-position: center;
-            height: 100vh;
+            min-height: 100vh; /* ปรับให้เต็มหน้าจอ */
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             transition: background-image 0.5s ease-in-out;
-            position: relative; /* ทำให้สามารถวางลูกศรซ้ายขวา */
+            position: relative;
         }
 
         /* เนื้อหาตรงกลาง */
@@ -63,8 +63,13 @@
             background-color: rgba(255, 255, 255, 0.8);
             padding: 20px;
             border-radius: 10px;
-            z-index: 1; /* ทำให้ container อยู่เหนือพื้นหลัง */
-            margin-top: 60px; /* เลื่อนลงมาให้ไม่ทับกับแถบเมนูด้านบน */
+            z-index: 1;
+            margin-top: 60px;
+            /* ปรับความสูงขั้นต่ำให้เต็มหน้าจอโดยหักลบแถบเมนูด้านบนและด้านล่าง */
+            min-height: calc(100vh - 120px); /* 120px มาจากเมนูบนและล่างรวมกัน */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
 
         /* การจัดการรูปภาพ */
@@ -102,7 +107,8 @@
     <div class="container">
         <h2>เกี่ยวกับฉัน</h2>
         <img src="images/BB.jpg" alt="Profile Picture">
-        <p>สวัสดีครับ ผมชื่อ <strong>นายวงศพัทธ์ นาคม่วง</strong> ปัจจุบันเป็นนักศึกษาชั้นปีที่ 3...</p>
+        <p>สวัสดีครับ ผมชื่อ <strong>นายวงศพัทธ์ นาคม่วง</strong> ปัจจุบันเป็นนักศึกษาชั้นปีที่ 3 <p>สวัสดีครับ ผมชื่อ <strong>นายวงศพัทธ์ นาคม่วง</strong> ปัจจุบันเป็นนักศึกษาชั้นปีที่ 3 ในสาขาวิทยาการคอมพิวเตอร์ มหาวิทยาลัยแม่โจ้ ผมมีความสนใจเป็นพิเศษในด้าน <strong>Backend Development</strong> และได้มีประสบการณ์ในการเขียนโปรแกรมด้วยภาษา <strong>Node.js</strong>, <strong>Java</strong>, และ <strong>JavaScript</strong>. นอกจากนี้ผมยังเชี่ยวชาญในการออกแบบและพัฒนาระบบฐานข้อมูลโดยใช้ <strong>MySQL</strong> และ <strong>MongoDB</strong>. ในระหว่างการศึกษา ผมได้พัฒนาทักษะต่าง ๆ ผ่านการทำโปรเจกต์ รวมถึงโปรเจกต์ <strong>ระบบเครื่องซักผ้าหยอดเหรียญ</strong> ที่เชื่อมต่อกับเว็บเพื่อการติดตามสถานะเครื่องซักผ้าแบบเรียลไทม์.</p>
+    </p>
     </div>
 </div>
 
