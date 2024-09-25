@@ -6,80 +6,101 @@
     <title>เกี่ยวกับฉัน - นายวงศพัทธ์ นาคม่วง</title>
     <link rel="stylesheet" href="styles.css">
     <style>
-        /* ตั้งค่า background image */
-        body {
-            background-image: url('BB2.jpg'); /* ใส่พาธรูปภาพพื้นหลัง */
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            opacity: 0.9; /* ปรับให้ภาพลางๆ */
+        /* การตั้งค่าเบื้องต้น */
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: Arial, sans-serif;
         }
 
-        /* การจัดการรูปให้อยู่ตรงกลาง */
-        .container {
+        /* พื้นหลังครอบคลุมทั้งหน้า */
+        .background {
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            min-height: 100vh; /* ความสูงของ container ให้เต็มหน้าจอ */
-            text-align: center;
-            background-color: rgba(255, 255, 255, 0.8); /* พื้นหลังขาวโปร่งใสเล็กน้อย */
+            transition: background-image 0.5s ease-in-out;
         }
 
-        /* การจัดการรูปภาพ */
+        /* การจัดกึ่งกลาง */
+        .container {
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        /* ปุ่มเลื่อนภาพ */
+        .controls {
+            margin-top: 20px;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            background-color: #333;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+        }
+
+        .btn:hover {
+            background-color: #555;
+        }
+
         img {
             width: 200px;
             height: auto;
             border-radius: 50%;
             border: 5px solid white;
         }
-
-        h2 {
-            font-size: 2.5em;
-            color: #333;
-        }
-
-        p {
-            font-size: 1.2em;
-            color: #666;
-            font-weight: bold;
-        }
     </style>
 </head>
 <body>
+
+<div class="background" id="background">
     <div class="container">
         <h2>เกี่ยวกับฉัน</h2>
-        <!-- เพิ่มรูปภาพตรงกลาง -->
         <img src="images/BB.jpg" alt="Profile Picture">
         <p>สวัสดีครับ ผมชื่อ <strong>นายวงศพัทธ์ นาคม่วง</strong> ปัจจุบันเป็นนักศึกษาชั้นปีที่ 3...</p>
 
-
-        <section id="skills" class="section">
-            <div class="container">
-                <h2>ทักษะที่เชี่ยวชาญ</h2>
-                <ul>
-                    <li>การพัฒนา Backend ด้วย Node.js, Express, Java</li>
-                    <li>การพัฒนา API</li>
-                    <li>การจัดการและออกแบบฐานข้อมูล</li>
-                    <li>การวิเคราะห์และแก้ปัญหาในระบบ IT</li>
-                </ul>
-            </div>
-        </section>
-    
-        <section id="contact" class="section">
-            <div class="container">
-                <h2>ติดต่อ</h2>
-                <p>อีเมล: <a href="mailto:wongsaphatbbgun@gmail.com">wongsaphatbbgun@gmail.com</a></p>
-                <p>เบอร์โทร: 065-787-8756</p>
-            </div>
-        </section>
-
-        <footer>
-            <div class="container">
-                <p>&copy; 2024 นายวงศพัทธ์ นาคม่วง</p>
-            </div>
-        </footer>
-
+        <!-- ปุ่มสำหรับเลื่อนภาพพื้นหลัง -->
+        <div class="controls">
+            <button class="btn" onclick="prevImage()">ภาพก่อนหน้า</button>
+            <button class="btn" onclick="nextImage()">ภาพถัดไป</button>
+        </div>
     </div>
+</div>
+
+<script>
+    // รายการภาพพื้นหลัง
+    const images = [
+        'url("s1.jpeg")',
+        'url("s2.jpg")',
+        'url("s3.jpg")'
+    ];
+
+    let currentIndex = 0;
+
+    // ฟังก์ชันสำหรับแสดงภาพก่อนหน้า
+    function prevImage() {
+        currentIndex = (currentIndex === 0) ? images.length - 1 : currentIndex - 1;
+        document.getElementById('background').style.backgroundImage = images[currentIndex];
+    }
+
+    // ฟังก์ชันสำหรับแสดงภาพถัดไป
+    function nextImage() {
+        currentIndex = (currentIndex === images.length - 1) ? 0 : currentIndex + 1;
+        document.getElementById('background').style.backgroundImage = images[currentIndex];
+    }
+
+    // ตั้งค่าเริ่มต้น
+    document.getElementById('background').style.backgroundImage = images[currentIndex];
+</script>
 </body>
 </html>
