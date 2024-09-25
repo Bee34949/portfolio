@@ -3,34 +3,84 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Portfolio</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Wongsaphat WEB</title>
+    <style>
+        /* การตั้งค่าเบื้องต้น */
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: 'Arial', sans-serif;
+            background-color: #f9f9f9;
+        }
+
+        /* การตั้งค่าแถบเมนู */
+        nav {
+            background-color: #333;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 10;
+        }
+
+        nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: #ddd;
+        }
+
+        /* การตั้งค่าโลโก้ */
+        .logo {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            width: 50px; /* ขนาดโลโก้ที่ต้องการ */
+        }
+
+        /* เนื้อหากลางหน้า */
+        .content {
+            text-align: center;
+            margin-top: 100px; /* ระยะห่างจากแถบเมนู */
+        }
+
+        h1 {
+            font-size: 2.5em;
+            color: #333;
+        }
+
+        p {
+            font-size: 1.2em;
+            color: #666;
+        }
+
+    </style>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <h1>นายวงศพัทธ์ นาคม่วง</h1>
-            <p>Backend Developer</p>
-            <nav>
-                <!-- ลิงก์ไปยังไฟล์ about.html -->
-                <a href="about.html">เกี่ยวกับฉัน</a>
-                <a href="projects.html">โครงการ</a>
-                <a href="contact.html">ติดต่อ</a>
-            </nav>
-        </div>
-    </header>
 
-    <section id="intro" class="section">
-        <div class="container">
-            <h2>ยินดีต้อนรับสู่เว็บไซต์ของฉัน</h2>
-            <p>ผมคือ นายวงศพัทธ์ นาคม่วง, นักพัฒนา Backend Developer</p>
-        </div>
-    </section>
+<!-- แทรกโลโก้ซ้ายบน -->
+<img src="LogoB.png" alt="Logo" class="logo">
 
-    <footer>
-        <div class="container">
-            <p>&copy; 2024 นายวงศพัทธ์ นาคม่วง</p>
-        </div>
-    </footer>
+<!-- แถบเมนู -->
+<nav>
+    <a href="about.html">เกี่ยวกับฉัน</a>
+    <a href="projects.html">โครงการ</a>
+    <a href="contact.html">ติดต่อ</a>
+</nav>
+
+<!-- เนื้อหาหลัก -->
+<div class="content">
+    <h1>ยินดีต้อนรับสู่เว็บไซต์ของผม!</h1>
+    <p>สวัสดีครับ ผมชื่อ นายวงศพัทธ์ นาคม่วง นักพัฒนา Backend ที่มีความมุ่งมั่นในการสร้างสรรค์เทคโนโลยีใหม่ ๆ</p>
+</div>
+
 </body>
 </html>
