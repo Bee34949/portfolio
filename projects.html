@@ -3,85 +3,182 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>โครงการ - นายวงศพัทธ์ นาคม่วง</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>ผลงาน - WongsaphaT WEB</title>
     <style>
-        /* การตั้งค่าเพิ่มเติมสำหรับรูปโปรเจกต์ */
-        .project {
-            margin-bottom: 30px;
+        /* การตั้งค่าเบื้องต้น */
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: 'Arial', sans-serif;
+            background-color: #f9f9f9;
         }
 
-        .project img {
-            width: 100%; /* หรือปรับขนาดตามความเหมาะสม */
-            max-width: 300px; /* จำกัดความกว้างของรูป */
-            height: auto;
-            display: block;
-            margin-bottom: 10px; /* เว้นระยะห่างระหว่างรูปและรายละเอียด */
-        }
-
-        .container {
-            max-width: 800px;
-            margin: auto;
-            padding: 20px;
-        }
-
-        h2 {
+        /* แถบเมนู */
+        nav {
+            background-color: #333;
+            color: white;
+            padding: 15px;
             text-align: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 10;
         }
 
-        h3 {
-            margin-top: 20px;
+        nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: bold;
         }
+
+        nav a:hover {
+            color: #ddd;
+        }
+
+        /* เนื้อหากลางหน้า */
+        .content {
+            text-align: center;
+            margin-top: 80px; /* เว้นช่องว่างสำหรับแถบเมนู */
+        }
+
+        h1 {
+            font-size: 2.5em;
+            color: #333;
+        }
+
+        /* กำหนดค่าสไลด์โชว์ */
+        .slideshow-container {
+            width: 60%; /* ขนาดความกว้างของสไลด์โชว์ */
+            max-width: 700px;
+            margin: 50px auto; /* ให้อยู่ตรงกลาง */
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        /* รูปภาพที่ใช้ในสไลด์ */
+        .slides {
+            display: none;
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+        }
+
+        /* คำอธิบายของแต่ละผลงาน */
+        .description {
+            margin-top: 20px;
+            font-size: 1.2em;
+            color: #666;
+        }
+
+        /* จุดกลมสำหรับการเลื่อนรูป */
+        .dot-container {
+            text-align: center;
+            margin: 15px 0;
+        }
+
+        .dot {
+            cursor: pointer;
+            height: 15px;
+            width: 15px;
+            margin: 0 2px;
+            background-color: #bbb;
+            border-radius: 50%;
+            display: inline-block;
+            transition: background-color 0.6s ease;
+        }
+
+        .active, .dot:hover {
+            background-color: #717171;
+        }
+
     </style>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <h1>นายวงศพัทธ์ นาคม่วง</h1>
-            <p>Backend Developer</p>
-            <nav>
-                <a href="index.html">หน้าแรก</a>
-                <a href="about.html">ประวัติตัวเอง</a>
-                <a href="projects.html">โครงการ</a>
-                <a href="contact.html">ติดต่อ</a>
-            </nav>
-        </div>
-    </header>
-    
-    <section id="projects" class="section">
-        <div class="container">
-            <h2>โครงการที่เคยทำ</h2>
-            <div class="project">
-                <img src="Pr2.png" alt="eCommerce Project Image">
-                <h3>โปรเจกต์อีคอมเมิร์ซ (กลุ่ม)</h3>
-                <p>ระบบ Backend สำหรับจัดการสินค้าและผู้ใช้ โดยใช้ Node.js และ MySQL</p>
-                <a href="https://github.com/SarayutBz/eCommerceMarket.git" target="_blank">ดูโค้ดบน GitHub</a>
-            </div>
-            <div class="project">
-                <img src="Pr1.png" alt="FW Project Image">
-                <h3>โปรเจกต์ FWHUB (กลุ่ม)</h3>
-                <p>ระบบ Backend สำหรับจัดการการจองที่พัก โดยใช้ Express.js และ MongoDB</p>
-                <a href="https://github.com/SarayutBz/FWHUB.git" target="_blank">ดูโค้ดบน GitHub</a>
-            </div>
-            <div class="project">
-                <img src="Pr3.png" alt="AWS Transcribe Project Image">
-                <h3>โปรเจกต์ AWS Transcribe (กลุ่ม)</h3>
-                <p>ระบบรวบรวมข้อมูลเสียงโดยใช้บริการ AWS Transcribe</p>
-                <a href="https://github.com/SarayutBz/AWS_Transribe.git" target="_blank">ดูโค้ดบน GitHub</a>
-            </div>
-            <div class="project">
-                <img src="images/smartbottrader_project.jpg" alt="SmartBotTrader Project Image">
-                <h3>โปรเจกต์ SmartBotTrader (เดี่ยว)</h3>
-                <p>บอทซื้อขายสกุลเงินดิจิทัลที่ใช้ AI เพื่อเพิ่มประสิทธิภาพในการซื้อขาย</p>
-                <a href="https://github.com/Bee34949/smartbottrader" target="_blank">ดูโค้ดบน GitHub</a>
-            </div>
-        </div>
-    </section>
 
-    <footer>
-        <div class="container">
-            <p>&copy; 2024 นายวงศพัทธ์ นาคม่วง</p>
-        </div>
-    </footer>
+<!-- แถบเมนู -->
+<nav>
+    <a href="index.html">หน้าแรก</a>
+    <a href="about.html">เกี่ยวกับฉัน</a>
+    <a href="projects.html">โครงการ</a>
+    <a href="contact.html">ติดต่อ</a>
+</nav>
+
+<!-- เนื้อหาหลัก -->
+<div class="content">
+    <h1>ผลงาน</h1>
+    
+    <!-- สไลด์โชว์ -->
+    <div class="slideshow-container">
+        <img class="slides" src="Pr2.png" alt="Project 1">
+        <img class="slides" src="Pr1.png" alt="Project 2">
+        <img class="slides" src="Pr3.png" alt="Project 3">
+    </div>
+
+    <!-- คำอธิบายของโปรเจกต์ -->
+    <div id="description" class="description">
+        <p>คำอธิบายโปรเจกต์ 1: ระบบ Backend สำหรับจัดการสินค้าและผู้ใช้ โดยใช้ Node.js และ MySQL</p>
+    </div>
+
+    <!-- จุดกลมเพื่อบอกตำแหน่งสไลด์ -->
+    <div class="dot-container">
+        <span class="dot" onclick="currentSlide(1)"></span> 
+        <span class="dot" onclick="currentSlide(2)"></span> 
+        <span class="dot" onclick="currentSlide(3)"></span> 
+    </div>
+</div>
+
+<!-- JavaScript สำหรับการควบคุมสไลด์และเปลี่ยนคำอธิบาย -->
+<script>
+    let slideIndex = 0;
+    const descriptions = [
+        "คำอธิบายโปรเจกต์ 1: ระบบ Backend สำหรับจัดการสินค้าและผู้ใช้ โดยใช้ Node.js และ MySQL",
+        "คำอธิบายโปรเจกต์ 2: ระบบขายคอร์สเรียนการเงิน FWHUB",
+        "คำอธิบายโปรเจกต์ 3: ระบบถอดเสียงเป็นข้อความในเว็บโดยบริการServices"
+    ];
+    showSlides();
+
+    function showSlides() {
+        let slides = document.getElementsByClassName("slides");
+        let dots = document.getElementsByClassName("dot");
+        let description = document.getElementById("description");
+
+        // ซ่อนรูปภาพทั้งหมดก่อน
+        for (let i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";  
+        }
+
+        // รีเซ็ต dot ทั้งหมด
+        for (let i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+        }
+
+        // เลื่อนไปสไลด์ถัดไป
+        slideIndex++;
+        if (slideIndex > slides.length) {slideIndex = 1}    
+
+        // แสดงรูปปัจจุบัน
+        slides[slideIndex-1].style.display = "block";  
+
+        // แสดง dot ที่ตรงกับรูป
+        dots[slideIndex-1].className += " active";
+
+        // อัปเดตคำอธิบายของโปรเจกต์
+        description.innerHTML = `<p>${descriptions[slideIndex-1]}</p>`;
+
+        // เลื่อนไปยังรูปถัดไปทุกๆ 10 วินาที
+        setTimeout(showSlides, 10000); // 10000 มิลลิวินาที = 10 วินาที
+    }
+
+    function currentSlide(n) {
+        slideIndex = n;
+        showSlides();
+    }
+</script>
+
 </body>
 </html>
