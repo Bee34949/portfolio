@@ -66,33 +66,7 @@
             z-index: 1; /* ทำให้ container อยู่เหนือพื้นหลัง */
             margin-top: 60px; /* เลื่อนลงมาให้ไม่ทับกับแถบเมนูด้านบน */
         }
-
-        /* ปุ่มเลื่อนภาพลูกศร */
-        .arrow-btn {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            font-size: 40px;
-            color: white;
-            background-color: rgba(0, 0, 0, 0.5);
-            border: none;
-            cursor: pointer;
-            padding: 10px 20px;
-            z-index: 2;
-        }
-
-        .arrow-left {
-            left: 10px;
-        }
-
-        .arrow-right {
-            right: 10px;
-        }
-
-        .arrow-btn:hover {
-            background-color: rgba(0, 0, 0, 0.7);
-        }
-
+        
         /* การจัดการรูปภาพ */
         img {
             width: 200px;
@@ -130,10 +104,6 @@
         <img src="images/BB.jpg" alt="Profile Picture">
         <p>สวัสดีครับ ผมชื่อ <strong>นายวงศพัทธ์ นาคม่วง</strong> ปัจจุบันเป็นนักศึกษาชั้นปีที่ 3...</p>
     </div>
-
-    <!-- ปุ่มลูกศรสำหรับเลื่อนภาพพื้นหลัง -->
-    <button class="arrow-btn arrow-left" onclick="prevImage()">&#9664;</button>
-    <button class="arrow-btn arrow-right" onclick="nextImage()">&#9654;</button>
 </div>
 
 <!-- แถบเมนูด้านล่าง -->
@@ -155,20 +125,17 @@
 
     let currentIndex = 0;
 
-    // ฟังก์ชันสำหรับแสดงภาพก่อนหน้า
-    function prevImage() {
-        currentIndex = (currentIndex === 0) ? images.length - 1 : currentIndex - 1;
-        document.getElementById('background').style.backgroundImage = images[currentIndex];
-    }
-
-    // ฟังก์ชันสำหรับแสดงภาพถัดไป
-    function nextImage() {
+    // ฟังก์ชันสำหรับเปลี่ยนภาพอัตโนมัติ
+    function autoSlide() {
         currentIndex = (currentIndex === images.length - 1) ? 0 : currentIndex + 1;
         document.getElementById('background').style.backgroundImage = images[currentIndex];
     }
 
     // ตั้งค่าเริ่มต้น
     document.getElementById('background').style.backgroundImage = images[currentIndex];
+
+    // ตั้งให้เปลี่ยนภาพทุก 5 วินาที
+    setInterval(autoSlide, 5000); // 5000 มิลลิวินาที = 5 วินาที
 </script>
 
 </body>
