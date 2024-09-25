@@ -14,6 +14,36 @@
             font-family: Arial, sans-serif;
         }
 
+        /* การตั้งค่าแถบเมนู */
+        nav {
+            background-color: #333;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 10;
+        }
+
+        nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: #ddd;
+        }
+
+        /* แถบเมนูที่ด้านล่าง */
+        nav.bottom-nav {
+            bottom: 0;
+            top: auto;
+        }
+
         /* พื้นหลังครอบคลุมทั้งหน้า */
         .background {
             background-size: cover;
@@ -24,65 +54,103 @@
             align-items: center;
             justify-content: center;
             transition: background-image 0.5s ease-in-out;
+            position: relative; /* ทำให้สามารถวางลูกศรซ้ายขวา */
         }
 
-        /* การจัดกึ่งกลาง */
+        /* เนื้อหาตรงกลาง */
         .container {
             text-align: center;
             background-color: rgba(255, 255, 255, 0.8);
             padding: 20px;
             border-radius: 10px;
+            z-index: 1; /* ทำให้ container อยู่เหนือพื้นหลัง */
+            margin-top: 60px; /* เลื่อนลงมาให้ไม่ทับกับแถบเมนูด้านบน */
         }
 
-        /* ปุ่มเลื่อนภาพ */
-        .controls {
-            margin-top: 20px;
-        }
-
-        .btn {
-            padding: 10px 20px;
-            background-color: #333;
+        /* ปุ่มเลื่อนภาพลูกศร */
+        .arrow-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 40px;
             color: white;
+            background-color: rgba(0, 0, 0, 0.5);
             border: none;
-            border-radius: 5px;
             cursor: pointer;
-            margin: 5px;
+            padding: 10px 20px;
+            z-index: 2;
         }
 
-        .btn:hover {
-            background-color: #555;
+        .arrow-left {
+            left: 10px;
         }
 
+        .arrow-right {
+            right: 10px;
+        }
+
+        .arrow-btn:hover {
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+
+        /* การจัดการรูปภาพ */
         img {
             width: 200px;
             height: auto;
             border-radius: 50%;
             border: 5px solid white;
         }
+
+        h2 {
+            font-size: 2.5em;
+            color: #333;
+        }
+
+        p {
+            font-size: 1.2em;
+            color: #666;
+            font-weight: bold;
+        }
     </style>
 </head>
 <body>
+
+<!-- แถบเมนูด้านบน -->
+<nav>
+    <a href="#">หน้าแรก</a>
+    <a href="#">เกี่ยวกับฉัน</a>
+    <a href="#">ทักษะ</a>
+    <a href="#">โครงการ</a>
+    <a href="#">ติดต่อ</a>
+</nav>
 
 <div class="background" id="background">
     <div class="container">
         <h2>เกี่ยวกับฉัน</h2>
         <img src="images/BB.jpg" alt="Profile Picture">
         <p>สวัสดีครับ ผมชื่อ <strong>นายวงศพัทธ์ นาคม่วง</strong> ปัจจุบันเป็นนักศึกษาชั้นปีที่ 3...</p>
-
-        <!-- ปุ่มสำหรับเลื่อนภาพพื้นหลัง -->
-        <div class="controls">
-            <button class="btn" onclick="prevImage()">ภาพก่อนหน้า</button>
-            <button class="btn" onclick="nextImage()">ภาพถัดไป</button>
-        </div>
     </div>
+
+    <!-- ปุ่มลูกศรสำหรับเลื่อนภาพพื้นหลัง -->
+    <button class="arrow-btn arrow-left" onclick="prevImage()">&#9664;</button>
+    <button class="arrow-btn arrow-right" onclick="nextImage()">&#9654;</button>
 </div>
+
+<!-- แถบเมนูด้านล่าง -->
+<nav class="bottom-nav">
+    <a href="#">หน้าแรก</a>
+    <a href="#">เกี่ยวกับฉัน</a>
+    <a href="#">ทักษะ</a>
+    <a href="#">โครงการ</a>
+    <a href="#">ติดต่อ</a>
+</nav>
 
 <script>
     // รายการภาพพื้นหลัง
     const images = [
-        'url("BB6.jpg")',
         'url("BB4.jpg")',
-        'url("BB3.jpg")'
+        'url("BB5.jpg")',
+        'url("BB6.jpg")'
     ];
 
     let currentIndex = 0;
@@ -102,5 +170,6 @@
     // ตั้งค่าเริ่มต้น
     document.getElementById('background').style.backgroundImage = images[currentIndex];
 </script>
+
 </body>
 </html>
