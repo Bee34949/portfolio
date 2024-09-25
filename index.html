@@ -3,35 +3,169 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Portfolio</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>ประวัติส่วนตัว - นายวงศพัทธ์ นาคม่วง</title>
+    <style>
+        /* การตั้งค่าเบื้องต้น */
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: 'Arial', sans-serif;
+            background-color: #f2f2f2;
+        }
+
+        /* พื้นหลังเปลี่ยนตามเวลาจริง */
+        .background {
+            background-size: cover;
+            background-position: center;
+            min-height: 100vh; 
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: background-image 0.5s ease-in-out;
+            position: relative;
+        }
+
+        /* กรอบเรซูเม่ */
+        .resume-box {
+            background-color: white;
+            border: 2px solid #e3e3e3;
+            border-radius: 10px;
+            width: 350px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: left;
+            position: relative;
+        }
+
+        /* ภาพโปรไฟล์ */
+        .profile-pic {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #333;
+            display: block;
+            margin: 0 auto 20px;
+        }
+
+        /* กรอบซ้ายสำหรับ "HELLO" */
+        .hello-box {
+            position: absolute;
+            top: 20px;
+            right: -50px;
+            background-color: #FF3B30;
+            color: white;
+            padding: 5px 10px;
+            font-size: 18px;
+            font-weight: bold;
+            transform: rotate(90deg);
+        }
+
+        h2 {
+            font-size: 1.5em;
+            color: #333;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        p {
+            font-size: 0.9em;
+            color: #666;
+        }
+
+        .section-title {
+            font-size: 1.1em;
+            color: #FF3B30;
+            margin-top: 15px;
+            border-bottom: 2px solid #FF3B30;
+            padding-bottom: 5px;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            margin: 5px 0;
+        }
+
+        /* การตั้งค่าฟุตเตอร์ */
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #333;
+            color: white;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+        }
+
+    </style>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <h1>นายวงศพัทธ์ นาคม่วง</h1>
-            <p>Backend Developer</p>
-            <nav>
-                <!-- ลิงก์ไปยังไฟล์ about.html -->
-                <a href="about.html">เกี่ยวกับฉัน</a>
-                <a href="skills.html">ทักษะ</a>
-                <a href="projects.html">โครงการ</a>
-                <a href="contact.html">ติดต่อ</a>
-            </nav>
-        </div>
-    </header>
 
-    <section id="intro" class="section">
-        <div class="container">
-            <h2>ยินดีต้อนรับสู่เว็บไซต์ของฉัน</h2>
-            <p>ผมคือ นายวงศพัทธ์ นาคม่วง, นักพัฒนา Backend Developer</p>
-        </div>
-    </section>
+<div class="background" id="background">
+    <!-- กรอบเรซูเม่ -->
+    <div class="resume-box">
+        <!-- แทบ HELLO -->
+        <div class="hello-box">HELLO</div>
 
-    <footer>
-        <div class="container">
-            <p>&copy; 2024 นายวงศพัทธ์ นาคม่วง</p>
-        </div>
-    </footer>
+        <!-- รูปโปรไฟล์ -->
+        <img src="images/BB.jpg" alt="Profile Picture" class="profile-pic">
+
+        <!-- ข้อมูลส่วนตัว -->
+        <h2>ประวัติส่วนตัว</h2>
+        <p><strong>นายวงศพัทธ์ นาคม่วง</strong><br>อายุ: 21 ปี<br>วันเกิด: 1 มกราคม 2545</p>
+
+        <!-- การศึกษา -->
+        <div class="section-title">การศึกษา</div>
+        <ul>
+            <li>วิทยาการคอมพิวเตอร์, มหาวิทยาลัยแม่โจ้</li>
+        </ul>
+
+        <!-- ความสามารถพิเศษ -->
+        <div class="section-title">ความสามารถพิเศษ</div>
+        <ul>
+            <li>เขียนโปรแกรม: Node.js, Java, JavaScript</li>
+            <li>จัดการฐานข้อมูล: MySQL, MongoDB</li>
+        </ul>
+
+        <!-- ความใฝ่ฝันในอนาคต -->
+        <div class="section-title">ความใฝ่ฝันในอนาคต</div>
+        <p>พัฒนาระบบ Backend ที่มีคุณภาพ และเป็นส่วนหนึ่งในการสร้างสรรค์เทคโนโลยีใหม่ ๆ</p>
+    </div>
+</div>
+
+<script>
+    // รายการภาพพื้นหลัง
+    const images = [
+        'url("BB4.jpg")',
+        'url("BB5.jpg")',
+        'url("BB6.jpg")'
+    ];
+
+    let currentIndex = 0;
+
+    // ฟังก์ชันสำหรับเปลี่ยนภาพอัตโนมัติ
+    function autoSlide() {
+        currentIndex = (currentIndex === images.length - 1) ? 0 : currentIndex + 1;
+        document.getElementById('background').style.backgroundImage = images[currentIndex];
+    }
+
+    // ตั้งค่าเริ่มต้น
+    document.getElementById('background').style.backgroundImage = images[currentIndex];
+
+    // ตั้งให้เปลี่ยนภาพทุก 5 วินาที
+    setInterval(autoSlide, 5000); // 5000 มิลลิวินาที = 5 วินาที
+</script>
+
+<!-- ฟุตเตอร์ -->
+<footer>
+    <p>&copy; 2024 นายวงศพัทธ์ นาคม่วง</p>
+</footer>
+
 </body>
 </html>
