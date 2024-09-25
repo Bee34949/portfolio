@@ -3,52 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>เกี่ยวกับฉัน - นายวงศพัทธ์ นาคม่วง</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>ประวัติส่วนตัว - นายวงศพัทธ์ นาคม่วง</title>
     <style>
         /* การตั้งค่าเบื้องต้น */
         body, html {
             margin: 0;
             padding: 0;
             height: 100%;
-            font-family: Arial, sans-serif;
+            font-family: 'Arial', sans-serif;
+            background-color: #f2f2f2;
         }
 
-        /* การตั้งค่าแถบเมนู */
-        nav {
-            background-color: #333;
-            color: white;
-            padding: 15px;
-            text-align: center;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 10;
-        }
-
-        nav a {
-            color: white;
-            margin: 0 15px;
-            text-decoration: none;
-            font-size: 16px;
-            font-weight: bold;
-        }
-
-        nav a:hover {
-            color: #ddd;
-        }
-
-        /* แถบเมนูที่ด้านล่าง */
-        nav.bottom-nav {
-            bottom: 0;
-            top: auto;
-        }
-
-        /* พื้นหลังครอบคลุมทั้งหน้า */
+        /* พื้นหลังเปลี่ยนตามเวลาจริง */
         .background {
             background-size: cover;
             background-position: center;
-            min-height: 100vh; /* ปรับให้เต็มหน้าจอ */
+            min-height: 100vh; 
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -57,55 +27,115 @@
             position: relative;
         }
 
-        /* เนื้อหาตรงกลาง */
-        .container {
-            text-align: center;
-            background-color: rgba(255, 255, 255, 0.8);
-            padding: 20px;
+        /* กรอบเรซูเม่ */
+        .resume-box {
+            background-color: white;
+            border: 2px solid #e3e3e3;
             border-radius: 10px;
-            z-index: 1;
-            margin-top: 60px;
-            /* ปรับความสูงขั้นต่ำให้เต็มหน้าจอโดยหักลบแถบเมนูด้านบนและด้านล่าง */
-            min-height: calc(100vh - 120px); /* 120px มาจากเมนูบนและล่างรวมกัน */
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
+            width: 350px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: left;
+            position: relative;
         }
 
-        /* การจัดการรูปภาพ */
-        img {
-            width: 200px;
-            height: auto;
+        /* ภาพโปรไฟล์ */
+        .profile-pic {
+            width: 100px;
+            height: 100px;
             border-radius: 50%;
-            border: 5px solid white;
+            object-fit: cover;
+            border: 3px solid #333;
+            display: block;
+            margin: 0 auto 20px;
+        }
+
+        /* กรอบซ้ายสำหรับ "HELLO" */
+        .hello-box {
+            position: absolute;
+            top: 20px;
+            right: -50px;
+            background-color: #FF3B30;
+            color: white;
+            padding: 5px 10px;
+            font-size: 18px;
+            font-weight: bold;
+            transform: rotate(90deg);
         }
 
         h2 {
-            font-size: 2.5em;
+            font-size: 1.5em;
             color: #333;
+            text-align: center;
+            margin-bottom: 15px;
         }
 
         p {
-            font-size: 1.2em;
+            font-size: 0.9em;
             color: #666;
-            font-weight: bold;
         }
+
+        .section-title {
+            font-size: 1.1em;
+            color: #FF3B30;
+            margin-top: 15px;
+            border-bottom: 2px solid #FF3B30;
+            padding-bottom: 5px;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            margin: 5px 0;
+        }
+
+        /* การตั้งค่าฟุตเตอร์ */
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #333;
+            color: white;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+        }
+
     </style>
 </head>
 <body>
 
-<!-- แถบเมนูด้านบน -->
-<nav>
-    <a href="about.html">เกี่ยวกับฉัน</a>
-    <a href="projects.html">โครงการ</a>
-    <a href="contact.html">ติดต่อ</a>
-</nav>
-
 <div class="background" id="background">
-    <div class="container">
-        <h2>เกี่ยวกับฉัน</h2>
-        <img src="images/BB.jpg" alt="Profile Picture">
-        <p>สวัสดีครับ ผมชื่อ <strong>นายวงศพัทธ์ นาคม่วง</strong> ปัจจุบันเป็นนักศึกษาชั้นปีที่ 3 ในสาขาวิทยาการคอมพิวเตอร์ มหาวิทยาลัยแม่โจ้ ผมมีความสนใจเป็นพิเศษในด้าน <strong>Backend Development</strong> และได้มีประสบการณ์ในการเขียนโปรแกรมด้วยภาษา <strong>Node.js</strong>, <strong>Java</strong>, และ <strong>JavaScript</strong>. นอกจากนี้ผมยังเชี่ยวชาญในการออกแบบและพัฒนาระบบฐานข้อมูลโดยใช้ <strong>MySQL</strong> และ <strong>MongoDB</strong>. ในระหว่างการศึกษา ผมได้พัฒนาทักษะต่าง ๆ ผ่านการทำโปรเจกต์ รวมถึงโปรเจกต์ <strong>ระบบเครื่องซักผ้าหยอดเหรียญ</strong> ที่เชื่อมต่อกับเว็บเพื่อการติดตามสถานะเครื่องซักผ้าแบบเรียลไทม์.</p>
+    <!-- กรอบเรซูเม่ -->
+    <div class="resume-box">
+        <!-- แทบ HELLO -->
+        <div class="hello-box">HELLO</div>
+
+        <!-- รูปโปรไฟล์ -->
+        <img src="images/BB.jpg" alt="Profile Picture" class="profile-pic">
+
+        <!-- ข้อมูลส่วนตัว -->
+        <h2>ประวัติส่วนตัว</h2>
+        <p><strong>นายวงศพัทธ์ นาคม่วง</strong><br>อายุ: 21 ปี<br>วันเกิด: 1 มกราคม 2545</p>
+
+        <!-- การศึกษา -->
+        <div class="section-title">การศึกษา</div>
+        <ul>
+            <li>วิทยาการคอมพิวเตอร์, มหาวิทยาลัยแม่โจ้</li>
+        </ul>
+
+        <!-- ความสามารถพิเศษ -->
+        <div class="section-title">ความสามารถพิเศษ</div>
+        <ul>
+            <li>เขียนโปรแกรม: Node.js, Java, JavaScript</li>
+            <li>จัดการฐานข้อมูล: MySQL, MongoDB</li>
+        </ul>
+
+        <!-- ความใฝ่ฝันในอนาคต -->
+        <div class="section-title">ความใฝ่ฝันในอนาคต</div>
+        <p>พัฒนาระบบ Backend ที่มีคุณภาพ และเป็นส่วนหนึ่งในการสร้างสรรค์เทคโนโลยีใหม่ ๆ</p>
     </div>
 </div>
 
@@ -134,9 +164,7 @@
 
 <!-- ฟุตเตอร์ -->
 <footer>
-    <div class="container">
-        <p>&copy; 2024 นายวงศพัทธ์ นาคม่วง</p>
-    </div>
+    <p>&copy; 2024 นายวงศพัทธ์ นาคม่วง</p>
 </footer>
 
 </body>
