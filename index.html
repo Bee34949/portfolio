@@ -19,11 +19,18 @@
             background-color: #333;
             color: white;
             padding: 15px;
-            text-align: center;
+            text-align: left; /* ตั้งตำแหน่งให้เริ่มจากด้านซ้าย */
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 10;
+            display: flex;
+            align-items: center; /* จัดให้อยู่ในแนวนอนตรงกลาง */
+        }
+
+        nav img.logo {
+            width: 50px; /* ขนาดโลโก้ที่ต้องการ */
+            margin-right: 20px; /* ระยะห่างระหว่างโลโก้และลิงก์เมนู */
         }
 
         nav a {
@@ -38,18 +45,10 @@
             color: #ddd;
         }
 
-        /* การตั้งค่าโลโก้ */
-        .logo {
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            width: 50px; /* ขนาดโลโก้ที่ต้องการ */
-        }
-
         /* เนื้อหากลางหน้า */
         .content {
             text-align: center;
-            margin-top: 100px; /* ระยะห่างจากแถบเมนู */
+            margin-top: 150px; /* ระยะห่างจากแถบเมนู */
         }
 
         h1 {
@@ -66,11 +65,9 @@
 </head>
 <body>
 
-<!-- แทรกโลโก้ซ้ายบน -->
-<img src="B.webp" alt="Logo" class="logo">
-
 <!-- แถบเมนู -->
 <nav>
+    <img src="BO.webp" alt="Logo" class="logo">
     <a href="about.html">เกี่ยวกับฉัน</a>
     <a href="projects.html">โครงการ</a>
     <a href="contact.html">ติดต่อ</a>
