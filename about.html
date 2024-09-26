@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ประวัติส่วนตัว - นายวงศพัทธ์ นาคม่วง</title>
+    <title>หน้าแรก - WongsaphaT WEB</title>
     <style>
         /* การตั้งค่าเบื้องต้น */
         body, html {
@@ -11,183 +11,160 @@
             padding: 0;
             height: 100%;
             font-family: 'Arial', sans-serif;
-            background-color: #f2f2f2;
+            background-color: #f9f9f9;
         }
 
-        /* พื้นหลังเปลี่ยนตามเวลาจริง */
-        .background {
-            background-size: cover;
-            background-position: center;
-            min-height: 100vh; 
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            transition: background-image 0.5s ease-in-out;
-            position: relative;
-        }
-
-        /* กรอบเรซูเม่ */
-        .resume-box {
-            background-color: white;
-            border: 2px solid #e3e3e3;
-            border-radius: 10px;
-            width: 350px;
-            padding: 20px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            text-align: left;
-            position: relative;
-            z-index: 1; /* ป้องกันทับกับพื้นหลัง */
-        }
-
-        /* ภาพโปรไฟล์ */
-        .profile-pic {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 3px solid #333;
-            display: block;
-            margin: 0 auto 20px;
-        }
-
-        /* กรอบซ้ายสำหรับ "HELLO" */
-        .hello-box {
-            position: absolute;
-            top: 20px;
-            right: -50px;
-            background-color: #FF3B30;
+        /* แถบเมนู */
+        nav {
+            background-color: #333;
             color: white;
-            padding: 5px 10px;
-            font-size: 18px;
-            font-weight: bold;
-            transform: rotate(90deg);
-        }
-
-        h2 {
-            font-size: 1.5em;
-            color: #333;
+            padding: 15px;
             text-align: center;
-            margin-bottom: 15px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 10;
         }
 
-        p {
-            font-size: 0.9em;
-            color: #666;
-        }
-
-        .section-title {
-            font-size: 1.1em;
-            color: #8a8685;
-            margin-top: 15px;
-            border-bottom: 2px solid #8a8685;
-            padding-bottom: 5px;
-        }
-
-        ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        li {
-            margin: 5px 0;
-        }
-
-        /* ปุ่มย้อนกลับ */
-        .back-button {
-            display: block;
-            margin: 20px auto;
-            padding: 10px 20px;
-            background-color: #FF3B30;
+        nav a {
             color: white;
-            text-align: center;
+            margin: 0 15px;
             text-decoration: none;
-            border-radius: 5px;
             font-size: 16px;
             font-weight: bold;
         }
 
-        .back-button:hover {
-            background-color: #FF5733;
+        nav a:hover {
+            color: #ddd;
         }
 
-        /* การตั้งค่าฟุตเตอร์ */
-        footer {
+        /* เนื้อหากลางหน้า */
+        .content {
             text-align: center;
-            padding: 10px;
-            background-color: #333;
-            color: white;
-            position: absolute;
-            bottom: 0;
+            margin-top: 80px; /* เว้นช่องว่างสำหรับแถบเมนู */
+        }
+
+        h1 {
+            font-size: 2.5em;
+            color: #333;
+        }
+
+        /* กำหนดค่าสไลด์โชว์ */
+        .slideshow-container {
+            width: 60%; /* ขนาดความกว้างของสไลด์โชว์ */
+            max-width: 700px;
+            margin: 50px auto; /* ให้อยู่ตรงกลาง */
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        /* รูปภาพที่ใช้ในสไลด์ */
+        .slides {
+            display: none;
             width: 100%;
+            height: 400px;
+            object-fit: cover;
+        }
+
+        /* จุดกลมสำหรับการเลื่อนรูป */
+        .dot-container {
+            text-align: center;
+            margin: 15px 0;
+        }
+
+        .dot {
+            cursor: pointer;
+            height: 15px;
+            width: 15px;
+            margin: 0 2px;
+            background-color: #bbb;
+            border-radius: 50%;
+            display: inline-block;
+            transition: background-color 0.6s ease;
+        }
+
+        .active, .dot:hover {
+            background-color: #717171;
         }
 
     </style>
 </head>
 <body>
 
-<div class="background" id="background">
-    <!-- กรอบเรซูเม่ -->
-    <div class="resume-box">
-        <!-- แทบ HELLO -->
-        <div class="hello-box">HELLO</div>
+<!-- แถบเมนู -->
+<nav>
+    <a href="index.html">หน้าแรก</a>
+    <a href="about.html">เกี่ยวกับฉัน</a>
+    <a href="projects.html">โครงการ</a>
+    <a href="contact.html">ติดต่อ</a>
+</nav>
 
-        <!-- รูปโปรไฟล์ -->
-        <img src="images/BB.jpg" alt="Profile Picture" class="profile-pic">
+<!-- เนื้อหาหลัก -->
+<div class="content">
+    <h1>ยินดีต้อนรับสู่เว็บไซต์ของผม!</h1>
+    <p>สวัสดีครับ ผมชื่อ นายวงศพัทธ์ นาคม่วง นักพัฒนา Backend ที่มีความมุ่งมั่นในการสร้างสรรค์เทคโนโลยีใหม่ ๆ</p>
+    
+    <!-- สไลด์โชว์ -->
+    <div class="slideshow-container">
+        <img class="slides" src="images/BB.jpg" alt="Slide 1">
+        <img class="slides" src="BB7.png" alt="Slide 2">
+        <img class="slides" src="BB8.jpg" alt="Slide 3">
+    </div>
 
-        <!-- ข้อมูลส่วนตัว -->
-        <h2>ประวัติส่วนตัว</h2>
-        <p><strong>นายวงศพัทธ์ นาคม่วง</strong><br>อายุ: 20 ปี<br>วันเกิด: 14 กุมภาพันธ์ 2547</p>
-
-        <!-- การศึกษา -->
-        <div class="section-title">การศึกษา</div>
-        <ul>
-            <li>วิทยาการคอมพิวเตอร์, มหาวิทยาลัยแม่โจ้</li>
-        </ul>
-
-        <!-- ความสามารถพิเศษ -->
-        <div class="section-title">ความสามารถพิเศษ</div>
-        <ul>
-            <li>เขียนโปรแกรม: Node.js, Java, JavaScript</li>
-            <li>จัดการฐานข้อมูล: MySQL, MongoDB</li>
-        </ul>
-
-        <!-- ความใฝ่ฝันในอนาคต -->
-        <div class="section-title">ความใฝ่ฝันในอนาคต</div>
-        <p>พัฒนาระบบ Backend ที่มีคุณภาพ และเป็นส่วนหนึ่งในการสร้างสรรค์เทคโนโลยีใหม่ ๆ</p>
-
-        <!-- ปุ่มย้อนกลับไปหน้าแรก -->
-        <a href="index.html" class="back-button">ย้อนกลับไปหน้าแรก</a>
+    <!-- จุดกลมเพื่อบอกตำแหน่งสไลด์ -->
+    <div class="dot-container">
+        <span class="dot" onclick="currentSlide(1)"></span> 
+        <span class="dot" onclick="currentSlide(2)"></span> 
+        <span class="dot" onclick="currentSlide(3)"></span> 
     </div>
 </div>
 
+<!-- กล่องแนะนำตัวเบื้องต้น -->
+<div class="intro-box">
+    <p>สวัสดีครับ ผมชื่อ วงศพัทธ์ นาคม่วง เป็นนักพัฒนา Backend ที่สนใจด้านการจัดการระบบฐานข้อมูลและพัฒนา API ผมมีความมุ่งมั่นที่จะพัฒนาทักษะของตัวเองและสร้างสรรค์ผลงานที่มีคุณภาพ</p>
+</div>
+</div>
+
+<!-- JavaScript สำหรับการควบคุมสไลด์ -->
 <script>
-    // รายการภาพพื้นหลัง
-    const images = [
-        'url("BB4.jpg")',
-        'url("BB5.jpg")',
-        'url("BB6.jpg")'
-    ];
+    let slideIndex = 0;
+    showSlides();
 
-    let currentIndex = 0;
+    function showSlides() {
+        let slides = document.getElementsByClassName("slides");
+        let dots = document.getElementsByClassName("dot");
 
-    // ฟังก์ชันสำหรับเปลี่ยนภาพอัตโนมัติ
-    function autoSlide() {
-        currentIndex = (currentIndex === images.length - 1) ? 0 : currentIndex + 1;
-        document.getElementById('background').style.backgroundImage = images[currentIndex];
+        // ซ่อนรูปภาพทั้งหมดก่อน
+        for (let i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";  
+        }
+
+        // รีเซ็ต dot ทั้งหมด
+        for (let i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+        }
+
+        // เลื่อนไปสไลด์ถัดไป
+        slideIndex++;
+        if (slideIndex > slides.length) {slideIndex = 1}    
+
+        // แสดงรูปปัจจุบัน
+        slides[slideIndex-1].style.display = "block";  
+
+        // แสดง dot ที่ตรงกับรูป
+        dots[slideIndex-1].className += " active";
+
+        // เลื่อนไปยังรูปถัดไปทุกๆ 5 วินาที
+        setTimeout(showSlides, 5000); // 5000 มิลลิวินาที = 5 วินาที
     }
 
-    // ตั้งค่าเริ่มต้น
-    document.getElementById('background').style.backgroundImage = images[currentIndex];
-
-    // ตั้งให้เปลี่ยนภาพทุก 5 วินาที
-    setInterval(autoSlide, 5000); // 5000 มิลลิวินาที = 5 วินาที
+    function currentSlide(n) {
+        slideIndex = n;
+        showSlides();
+    }
 </script>
-
-<!-- ฟุตเตอร์ -->
-<footer>
-    <p>&copy; 2024 นายวงศพัทธ์ นาคม่วง</p>
-</footer>
 
 </body>
 </html>
