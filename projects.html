@@ -165,9 +165,7 @@
             dots[i].className = dots[i].className.replace(" active", "");
         }
 
-        // เลื่อนไปสไลด์ถัดไป
-        slideIndex++;
-        if (slideIndex > slides.length) {slideIndex = 1}    
+        
 
         // แสดงรูปปัจจุบัน
         slides[slideIndex-1].style.display = "block";  
@@ -178,8 +176,7 @@
         // อัปเดตคำอธิบายของโปรเจกต์
         description.innerHTML = `<p>${descriptions[slideIndex-1]}</p>`;
 
-        // เลื่อนไปยังรูปถัดไปทุกๆ 10 วินาที
-        setTimeout(showSlides, 10000); // 10000 มิลลิวินาที = 10 วินาที
+        
     }
 
     function currentSlide(n) {
