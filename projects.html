@@ -142,18 +142,25 @@
 
 <!-- JavaScript สำหรับการควบคุมสไลด์และเปลี่ยนคำอธิบาย -->
 <script>
-    let slideIndex = 0;
+    let slideIndex = 1;
     const descriptions = [
         "คำอธิบายโปรเจกต์ 1: ระบบ Backend สำหรับจัดการสินค้าและผู้ใช้ โดยใช้ Node.js และ MySQL",
         "คำอธิบายโปรเจกต์ 2: ระบบขายคอร์สเรียนการเงิน FWHUB",
         "คำอธิบายโปรเจกต์ 3: ระบบถอดเสียงเป็นข้อความในเว็บโดยบริการServices"
     ];
-    showSlides();
+    showSlides(slideIndex);
 
-    function showSlides() {
+    function currentSlide(n) {
+        showSlides(slideIndex = n);
+    }
+
+    function showSlides(n) {
         let slides = document.getElementsByClassName("slides");
         let dots = document.getElementsByClassName("dot");
         let description = document.getElementById("description");
+
+        if (n > slides.length) {slideIndex = 1}    
+        if (n < 1) {slideIndex = slides.length}
 
         // ซ่อนรูปภาพทั้งหมดก่อน
         for (let i = 0; i < slides.length; i++) {
@@ -165,8 +172,6 @@
             dots[i].className = dots[i].className.replace(" active", "");
         }
 
-        
-
         // แสดงรูปปัจจุบัน
         slides[slideIndex-1].style.display = "block";  
 
@@ -175,13 +180,6 @@
 
         // อัปเดตคำอธิบายของโปรเจกต์
         description.innerHTML = `<p>${descriptions[slideIndex-1]}</p>`;
-
-        
-    }
-
-    function currentSlide(n) {
-        slideIndex = n;
-        showSlides();
     }
 </script>
 
