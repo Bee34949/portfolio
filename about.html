@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>หน้าแรก - WongsaphaT WEB</title>
+    <title>เกี่ยวกับฉัน - นายวงศพัทธ์ นาคม่วง</title>
     <style>
         /* การตั้งค่าเบื้องต้น */
         body, html {
@@ -14,7 +14,7 @@
             background-color: #f9f9f9;
         }
 
-        /* แถบเมนู */
+        /* การตั้งค่าแถบเมนู */
         nav {
             background-color: #333;
             color: white;
@@ -38,57 +38,42 @@
             color: #ddd;
         }
 
-        /* เนื้อหากลางหน้า */
+        /* การตั้งค่าสำหรับส่วนหลัก */
         .content {
-            text-align: center;
-            margin-top: 80px; /* เว้นช่องว่างสำหรับแถบเมนู */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 100px;
+            padding: 20px;
+        }
+
+        /* ตั้งค่ารูปภาพ */
+        .profile-pic {
+            width: 200px;
+            height: auto;
+            border-radius: 10px;
+            margin-right: 20px;
+        }
+
+        /* กล่องข้อความ */
+        .text-box {
+            max-width: 600px;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
         h1 {
             font-size: 2.5em;
             color: #333;
+            margin-bottom: 10px;
         }
 
-        /* กำหนดค่าสไลด์โชว์ */
-        .slideshow-container {
-            width: 60%; /* ขนาดความกว้างของสไลด์โชว์ */
-            max-width: 700px;
-            margin: 50px auto; /* ให้อยู่ตรงกลาง */
-            position: relative;
-            overflow: hidden;
-            border-radius: 15px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        p {
+            font-size: 1.2em;
+            color: #666;
         }
-
-        /* รูปภาพที่ใช้ในสไลด์ */
-        .slides {
-            display: none;
-            width: 100%;
-            height: 400px;
-            object-fit: cover;
-        }
-
-        /* จุดกลมสำหรับการเลื่อนรูป */
-        .dot-container {
-            text-align: center;
-            margin: 15px 0;
-        }
-
-        .dot {
-            cursor: pointer;
-            height: 15px;
-            width: 15px;
-            margin: 0 2px;
-            background-color: #bbb;
-            border-radius: 50%;
-            display: inline-block;
-            transition: background-color 0.6s ease;
-        }
-
-        .active, .dot:hover {
-            background-color: #717171;
-        }
-
     </style>
 </head>
 <body>
@@ -103,68 +88,16 @@
 
 <!-- เนื้อหาหลัก -->
 <div class="content">
-    <h1>เกี่ยวกับฉันเอง</h1>
-    <p>สวัสดีครับ ผมชื่อ นายวงศพัทธ์ นาคม่วง นักพัฒนา Backend ที่มีความมุ่งมั่นในการสร้างสรรค์เทคโนโลยีใหม่ ๆ</p>
-    
-    <!-- สไลด์โชว์ -->
-    <div class="slideshow-container">
-        <img class="slides" src="images/BB.jpg" alt="Slide 1">
-        <img class="slides" src="BB7.PNG" alt="Slide 2">
-        <img class="slides" src="BB8.JPG" alt="Slide 3">
-    </div>
+    <!-- รูปภาพโปรไฟล์ -->
+    <img src="images/BB.jpg" alt="Profile Picture" class="profile-pic">
 
-    <!-- จุดกลมเพื่อบอกตำแหน่งสไลด์ -->
-    <div class="dot-container">
-        <span class="dot" onclick="currentSlide(1)"></span> 
-        <span class="dot" onclick="currentSlide(2)"></span> 
-        <span class="dot" onclick="currentSlide(3)"></span> 
+    <!-- กล่องข้อความ -->
+    <div class="text-box">
+        <h1>เกี่ยวกับฉันเอง</h1>
+        <p>สวัสดีครับ ผมชื่อ นายวงศพัทธ์ นาคม่วง นักพัฒนา Backend ที่มีความสนใจในด้านการจัดการระบบฐานข้อมูลและพัฒนา API ผมมีความมุ่งมั่นที่จะพัฒนาทักษะของตัวเองและสร้างสรรค์ผลงานที่มีคุณภาพ.</p>
+        <p>ปัจจุบันเป็นนักศึกษาชั้นปีที่ 3 สาขาวิทยาการคอมพิวเตอร์ มหาวิทยาลัยแม่โจ้.</p>
     </div>
 </div>
-
-<!-- กล่องแนะนำตัวเบื้องต้น -->
-<div class="intro-box">
-    <p> เป็นนักศึกษามหาวิทยาลัยแม่โจ้ ชั้นปีที่3 สาขาวิทยาการคอมพิวเตอร์ นักพัฒนา Backend ที่สนใจด้านการจัดการระบบฐานข้อมูลและพัฒนา API ผมมีความมุ่งมั่นที่จะพัฒนาทักษะของตัวเองและสร้างสรรค์ผลงานที่มีคุณภาพ</p>
-</div>
-</div>
-
-<!-- JavaScript สำหรับการควบคุมสไลด์ -->
-<script>
-    let slideIndex = 0;
-    showSlides();
-
-    function showSlides() {
-        let slides = document.getElementsByClassName("slides");
-        let dots = document.getElementsByClassName("dot");
-
-        // ซ่อนรูปภาพทั้งหมดก่อน
-        for (let i = 0; i < slides.length; i++) {
-            slides[i].style.display = "none";  
-        }
-
-        // รีเซ็ต dot ทั้งหมด
-        for (let i = 0; i < dots.length; i++) {
-            dots[i].className = dots[i].className.replace(" active", "");
-        }
-
-        // เลื่อนไปสไลด์ถัดไป
-        slideIndex++;
-        if (slideIndex > slides.length) {slideIndex = 1}    
-
-        // แสดงรูปปัจจุบัน
-        slides[slideIndex-1].style.display = "block";  
-
-        // แสดง dot ที่ตรงกับรูป
-        dots[slideIndex-1].className += " active";
-
-        // เลื่อนไปยังรูปถัดไปทุกๆ 5 วินาที
-        setTimeout(showSlides, 5000); // 5000 มิลลิวินาที = 5 วินาที
-    }
-
-    function currentSlide(n) {
-        slideIndex = n;
-        showSlides();
-    }
-</script>
 
 </body>
 </html>
